@@ -4,6 +4,7 @@ import { Dimensions } from 'react-native'
 import { Header } from '../../assets'
 import { Logo } from '../../assets'
 import Saldo from '../../components/Saldo'
+import Service from '../../components/Service'
 
 const Home = () => {
 
@@ -11,7 +12,8 @@ const Home = () => {
 
     useEffect(() => {
         // get local time
-        const currentHour = Date.now
+        const currentDate = new Date()
+        const currentHour = currentDate.getHours()
 
         // set message
         if (currentHour >= 5 && currentHour < 12) {
@@ -33,6 +35,7 @@ const Home = () => {
                 </View>
             </ImageBackground>
             <Saldo />
+            <Service />
         </View>
     )
 }
