@@ -1,10 +1,12 @@
-import { ImageBackground, Image, StyleSheet, Text, View, SafeAreaView } from 'react-native'
+import { ImageBackground, Image, StyleSheet, Text, View, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Dimensions } from 'react-native'
 import { Header } from '../../assets'
 import { Logo } from '../../assets'
 import Saldo from '../../components/Saldo'
 import Service from '../../components/Service'
+import ActiveOrder from '../../components/ActiveOrder'
+import { greyColor } from '../../utils/constant'
 
 const Home = () => {
 
@@ -26,30 +28,43 @@ const Home = () => {
     }, [])
 
     return (
-        <View>
-            <ImageBackground source={Header} style={styles.header}>
-                <Image source={Logo} style={styles.logo} />
-                <View style={styles.view}>
-                    <Text style={styles.title1}>{time}</Text>
-                    <Text style={styles.title2}>Wisnu Akbara</Text>
+        <View style={styles.page}>
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <ImageBackground source={Header} style={styles.logoHeader}>
+                    <Image source={Logo} style={styles.logo} />
+                    <View style={styles.message}>
+                        <Text style={styles.messageTime}>{time}</Text>
+                        <Text style={styles.userName}>Wisnu Akbara</Text>
+                    </View>
+                </ImageBackground>
+                <Saldo />
+                <Service />
+                <View style={styles.container}>
+                    <Text style={styles.text1}>Active Order</Text>
+                    <ActiveOrder title="Pesanan No. 002142" status="Done" />
+                    <ActiveOrder title="Pesanan No. 002143" status="Still On Progress" />
+                    <ActiveOrder title="Pesanan No. 002144" status="Done" />
+                    <ActiveOrder title="Pesanan No. 002145" status="Still On Progress" />
+                    <ActiveOrder title="Pesanan No. 002146" status="Still On Progress" />
+                    <ActiveOrder title="Pesanan No. 002147" status="Still On Progress" />
                 </View>
-            </ImageBackground>
-            <Saldo />
-            <Service />
+            </ScrollView>
         </View>
     )
 }
 
 export default Home
-// set responsiveness screen size
+// set dimensions
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
+    // Home page style
     page: {
         flex: 1,
+        backgroundColor: 'white'
     },
-    header: {
+    logoHeader: {
         width: windowWidth,
         height: windowHeight * 0.28,
         paddingHorizontal: 30,
@@ -59,15 +74,28 @@ const styles = StyleSheet.create({
         width: windowWidth * 0.3,
         height: windowHeight * 0.06
     },
-    view: {
+    message: {
         marginTop: windowHeight * 0.03,
     },
-    title1: {
+    messageTime: {
         fontSize: 24,
         fontFamily: 'TitilliumWeb-Regular'
     },
-    title2: {
+    userName: {
         fontSize: 20,
         fontFamily: 'TitilliumWeb-Bold'
-    }
+    },
+    // Active order style
+    container: {
+        paddingTop: 10,
+        paddingHorizontal: 30,
+        backgroundColor: greyColor,
+        flex: 1,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+    },
+    text1: {
+        fontSize: 18,
+        fontFamily: 'TitilliumWeb-Bold',
+    },
 })

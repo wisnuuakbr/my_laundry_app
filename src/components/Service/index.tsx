@@ -4,9 +4,9 @@ import ButtonIcon from '../ButtonIcon'
 
 const Service = () => {
     return (
-        <View style={styles.service}>
-            <Text style={styles.text1}>Service</Text>
-            <View style={styles.iconService}>
+        <View style={styles.container}>
+            <Text style={styles.text}>Service</Text>
+            <View style={styles.iconStyle}>
                 <ButtonIcon title="Kilo" type="service" />
                 <ButtonIcon title="Pieces" type="service" />
                 <ButtonIcon title="Vip" type="service" />
@@ -21,18 +21,18 @@ const Service = () => {
 export default Service
 
 const styles = StyleSheet.create({
-    service: {
+    container: {
         paddingLeft: 30,
-        paddingTop: 17,
+        paddingTop: 15,
     },
-    text1: {
+    text: {
         fontSize: 18,
         fontFamily: 'TitilliumWeb-Bold',
     },
-    iconService: {
+    iconStyle: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: 10,
+        marginTop: 12,
         flexWrap: 'wrap',
     }
 })

@@ -28,7 +28,7 @@ const Saldo = () => {
 
 export default Saldo
 
-// set responsiveness screen size
+// set dimensions
 const windowHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({

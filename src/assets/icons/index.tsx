@@ -12,6 +12,7 @@ import Vip from './Vip.svg'
 import Carpet from './Carpet.svg'
 import Iron from './Iron.svg'
 import Delivery from './Delivery.svg'
+import WashingMachine from './WashingMachine.svg'
 
 export {
     Home,
@@ -27,5 +28,6 @@ export {
     Vip,
     Carpet,
     Iron,
-    Delivery
+    Delivery,
+    WashingMachine
 }
